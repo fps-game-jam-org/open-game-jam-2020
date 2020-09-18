@@ -5,6 +5,6 @@
 - Malik Jordan, Art
 - Bridger Moore, Design
 - Fletcher Porter, Programming
-- S.a.m., Music and Audio
+- S.A.M., Music and Audio
 - Emily Solis, Art
 - James Stojic, Programming
