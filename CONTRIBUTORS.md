@@ -1,6 +1,6 @@
 # Contributors
 
-- Brian Bugert, Programming
+- Brian Bugert, Supreme Overlord
 - William Ingram, Music and Audio
 - Malik Jordan, Art
 - Bridger Moore, Design
