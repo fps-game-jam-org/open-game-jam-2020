@@ -19,11 +19,10 @@ public class PickUpReceiver : MonoBehaviour
         {
             switch (itemReceived.itemType)
             {
-                case "food":
+                case PickUpItemType.Food:
                     EatFood();
                     break;
                 default:
-                    Debug.Log("default");
                     break;
             }
         }

@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+public enum PickUpItemType
+{
+    Food,
+    None,
+}
 
 /// <summary>
 /// Attach this script to an item you wish to be picked up.
@@ -13,8 +18,8 @@ using UnityEngine;
 /// </summary>
 public class PickUpItem : MonoBehaviour
 {
-    [Tooltip("The category of item as understood by the receiver")]
-    public string itemType = "";
+    [Tooltip("The sort of item it is as the receiver is concerned")]
+    public PickUpItemType itemType = PickUpItemType.None;
 
     void OnCollisionEnter2D(Collision2D other)
     {
