@@ -7,7 +7,7 @@ public class GameStateController : MonoBehaviour
 {
     //Level number
     //TODO get level number from scene controller
-    private int levelNumber;    
+    private int levelNumber;
     //Level intro game object
     private GameObject levelIntro;
     //Level intro text
@@ -18,30 +18,18 @@ public class GameStateController : MonoBehaviour
 
     //Game clock
     private float gameClock;
-
     //Game clock event
     public delegate void OnGameClockChange(float gameClock);
     public event OnGameClockChange onGameClockChange;
 
     //State machine states
-    public enum State
-    {
-        None = 0,
-        Start,
-        Run,
-        Win,
-        Lose
-    }
-
+    public enum State { None = 0, Start, Run, Win, Lose }
     //Current state
     private State currentState;
-
     //Next state
     private State nextState;
-
     //Previous state
     private State previousState;
-
     //State machine state change event
     public delegate void OnStateChange(State state);
     public event OnStateChange onStateChange;
