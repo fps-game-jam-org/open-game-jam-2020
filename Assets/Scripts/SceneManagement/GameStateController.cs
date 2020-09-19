@@ -8,7 +8,7 @@ public class GameStateController : MonoBehaviour
     private float levelTime;
 
     //State machine states
-    private enum State
+    public enum State
     {
         Start,
         Run,
@@ -21,6 +21,10 @@ public class GameStateController : MonoBehaviour
 
     //Next state
     private State nextState;
+
+    //State machine state change event
+    public delegate void OnStateChange(State state);
+    public event OnStateChange onStateChange;
 
     // Start is called before the first frame update
     void Start()
@@ -42,6 +46,11 @@ public class GameStateController : MonoBehaviour
         levelTime += Time.deltaTime;
 
         //------ State Machine ------
+
+        //Call on state change event
+        if(nextState != currentState && onStateChange != null) {
+            onStateChange(nextState);
+        }
 
         //Update current state
         currentState = nextState;
