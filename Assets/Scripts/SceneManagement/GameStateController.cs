@@ -5,7 +5,11 @@ using UnityEngine;
 public class GameStateController : MonoBehaviour
 {
     //Game clock
-    private float levelTime;
+    private float gameClock;
+
+    //Game clock event
+    public delegate void OnGameClockChange(float gameClock);
+    public event OnGameClockChange onGameClockChange;
 
     //State machine states
     public enum State
@@ -36,14 +40,19 @@ public class GameStateController : MonoBehaviour
         nextState = State.Start; 
 
         //Initialize game clock
-        levelTime = 0;       
+        gameClock = 0;       
     }
 
     // Update is called once per frame
     void Update()
     {
         //Update game clock
-        levelTime += Time.deltaTime;
+        gameClock += Time.deltaTime;
+        
+        //Call on game clock change event
+        if(onGameClockChange != null) {
+            onGameClockChange(gameClock);
+        }
 
         //------ State Machine ------
 
