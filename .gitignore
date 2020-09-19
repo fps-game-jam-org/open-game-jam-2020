@@ -77,3 +77,6 @@ crashlytics-build.properties
 # emacs
 *~
 *#
+
+# macOS
+.DS_Store
