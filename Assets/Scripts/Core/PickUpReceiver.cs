@@ -11,20 +11,15 @@ using UnityEngine;
 /// </summary>
 public class PickUpReceiver : MonoBehaviour
 {
-    void OnCollisionEnter2D(Collision2D other)
+    public void ConsumeItem(PickUpItemType item)
     {
-        PickUpItem itemReceived =
-            other.gameObject.transform.GetComponentInChildren<PickUpItem>();
-        if (itemReceived != null)
+        switch (item)
         {
-            switch (itemReceived.itemType)
-            {
-                case PickUpItemType.Food:
-                    EatFood();
-                    break;
-                default:
-                    break;
-            }
+            case PickUpItemType.Food:
+                EatFood();
+                break;
+            default:
+                break;
         }
     }
 

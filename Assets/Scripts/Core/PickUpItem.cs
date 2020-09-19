@@ -23,11 +23,15 @@ public class PickUpItem : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.GetComponent<PickUpReceiver>() != null
+        PickUpReceiver receiver =
+            other.gameObject.GetComponent<PickUpReceiver>();
+        if (receiver != null
             && transform.parent.GetComponent<PickUpCarrier>() != null)
         {
+            receiver.ConsumeItem(itemType);
             transform.parent.GetComponent<PickUpCarrier>()
-                            .ConsumeItem(gameObject);
+                            .RemoveItem(gameObject);
+
         }
     }
 }

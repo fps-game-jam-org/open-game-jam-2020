@@ -22,7 +22,7 @@ public class PickUpCarrier : MonoBehaviour
         }
     }
 
-    public void ConsumeItem(GameObject gameObject)
+    public void RemoveItem(GameObject gameObject)
     {
         if (isCarryingItem)
         {
