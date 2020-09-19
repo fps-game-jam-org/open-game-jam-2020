@@ -2,6 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Attach this component to chick eggs to make it so their temperature
+/// falls when they aren't being roosted and rises when they are.
+/// </summary>
 public class ChickEggController : MonoBehaviour
 {
     [Tooltip("The temperature of the environment the egg is [degC]")]
