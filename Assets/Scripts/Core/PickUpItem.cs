@@ -13,7 +13,7 @@ using UnityEngine;
 /// </summary>
 public class PickUpItem : MonoBehaviour
 {
-
+    [ToolTip("The category of item as understood by the receiver")]
     public string itemType = "";
 
     void OnCollisionEnter2D(Collision2D other)
