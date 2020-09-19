@@ -6,12 +6,12 @@ using TMPro;
 public class GameStateController : MonoBehaviour
 {
     //Level number
-    //TODO get from scene controller
-    private int levelNumber;
-
+    //TODO get level number from scene controller
+    private int levelNumber;    
+    //Level intro game object
+    private GameObject levelIntro;
     //Level intro text
     private TextMeshProUGUI levelIntroText;
-
     //How long to show the level intro
     [Tooltip("Duration of level intro with level number")]
     public float LevelIntroDuration = 3;
@@ -58,9 +58,14 @@ public class GameStateController : MonoBehaviour
         //Initialize game clock
         gameClock = 0;
 
+        //Initialize level intro game object
+        levelIntro = GameObject.Find("/Game State Controller/Level Intro");
+        levelIntro.SetActive(false);
+
         //Initialize level intro text
-        levelIntroText = GameObject.Find("/Canvas/Game State Controller/Level Intro").GetComponent<TextMeshProUGUI>();
-        levelIntroText.enabled = false;
+        levelIntroText = GameObject.Find("/Game State Controller/Level Intro/Canvas/Level").GetComponent<TextMeshProUGUI>();
+        levelIntroText.enabled = true;
+
     }
 
     // Update is called once per frame
@@ -127,7 +132,7 @@ public class GameStateController : MonoBehaviour
         if (levelIntroText != null)
         {
             levelIntroText.text = $"Level {levelNumber}";
-            levelIntroText.enabled = true;
+            levelIntro.SetActive(true);
         }
     }
 
@@ -135,7 +140,7 @@ public class GameStateController : MonoBehaviour
     {
         if (levelIntroText != null)
         {
-            levelIntroText.enabled = false;
+            levelIntro.SetActive(false);
         }
     }
 }
