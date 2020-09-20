@@ -11,7 +11,6 @@ public class GameStateController : MonoBehaviour
     private float score;
 
     //Level number
-    //TODO get level number from scene controller
     private int levelNumber;
     //Level intro game object
     private GameObject levelIntro;
@@ -92,9 +91,12 @@ public class GameStateController : MonoBehaviour
 
         levelEnd.SetActive(false);
 
-
         //Initialize level score
         score = 0;
+
+        //get level number from scene controller   
+        TitleController titleController = GameObject.Find("/Title Controller").GetComponent<TitleController>();
+        levelNumber = titleController.GetCurrentLevelIndex() + 1;
 
     }
 

@@ -103,4 +103,8 @@ public class TitleController : MonoBehaviour
         SceneManager.LoadScene(Levels[CurrentLevelIndex], LoadSceneMode.Additive);
     }
 
+    public int GetCurrentLevelIndex() {
+        return CurrentLevelIndex;
+    }
+
 }
