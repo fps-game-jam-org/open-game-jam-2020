@@ -284,7 +284,7 @@ MonoBehaviour:
   incubationTemperature: 37.5
   heatTransferCoefficient: 25
   specificHeat: 3180
-  minEggTemperature: 36
+  minEggTemperature: 38
 --- !u!61 &1132563471
 BoxCollider2D:
   m_ObjectHideFlags: 0
