@@ -22,12 +22,8 @@ public class PickUpCarrier : MonoBehaviour
         }
     }
 
-    public void RemoveItem(GameObject gameObject)
+    public void DropItem()
     {
-        if (isCarryingItem)
-        {
-            Destroy(gameObject);
-            isCarryingItem = false;
-        }
+        isCarryingItem = false;
     }
 }

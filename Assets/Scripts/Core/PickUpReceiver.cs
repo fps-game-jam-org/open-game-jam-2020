@@ -11,20 +11,39 @@ using UnityEngine;
 /// </summary>
 public class PickUpReceiver : MonoBehaviour
 {
-    public void ConsumeItem(PickUpItemType item)
+    public void ConsumeItem(PickUpItem item)
     {
-        switch (item)
+        switch (item.type)
         {
             case PickUpItemType.Food:
-                EatFood();
+                EatFood(item);
+                break;
+            case PickUpItemType.Construction:
+                AddConstruction(item);
                 break;
             default:
                 break;
         }
     }
 
-    private void EatFood()
+    private void EatFood(PickUpItem item)
     {
         Debug.Log("I got some food");
+        Destroy(item.gameObject);
+    }
+
+    private void AddConstruction(PickUpItem item)
+    {
+        HatchlingController hatchlingController =
+            GetComponent<HatchlingController>();
+        if (hatchlingController != null)
+        {
+            if (hatchlingController.ConstructionMaterialsConsumed < 3)
+            {
+                item.GetComponentInParent<PickUpCarrier>().DropItem();
+                Destroy(item.gameObject);
+            }
+            hatchlingController.AddConstructionItem();
+        }
     }
 }
