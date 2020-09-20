@@ -96,7 +96,8 @@ public class GameStateController : MonoBehaviour
 
         //get level number from scene controller   
         TitleController titleController = GameObject.Find("/Title Controller").GetComponent<TitleController>();
-        levelNumber = titleController.GetCurrentLevelIndex() + 1;
+        int? currentLevelNumber = titleController.GetCurrentLevelIndex();
+        levelNumber = currentLevelNumber.HasValue ? currentLevelNumber.Value + 1 : 0;
 
     }
 
