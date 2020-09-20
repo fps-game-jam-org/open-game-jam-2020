@@ -5,6 +5,7 @@ using UnityEngine;
 public enum PickUpItemType
 {
     Food,
+    Construction,
     None,
 }
 
@@ -19,7 +20,7 @@ public enum PickUpItemType
 public class PickUpItem : MonoBehaviour
 {
     [Tooltip("The sort of item it is as the receiver is concerned")]
-    public PickUpItemType itemType = PickUpItemType.None;
+    public PickUpItemType type = PickUpItemType.None;
 
     void OnCollisionEnter2D(Collision2D other)
     {
@@ -28,10 +29,7 @@ public class PickUpItem : MonoBehaviour
         if (receiver != null
             && transform.parent.GetComponent<PickUpCarrier>() != null)
         {
-            receiver.ConsumeItem(itemType);
-            transform.parent.GetComponent<PickUpCarrier>()
-                            .RemoveItem(gameObject);
-
+            receiver.ConsumeItem(this);
         }
     }
 }
