@@ -2,23 +2,35 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Attach this to the bird nest.  A Pick Up Carrier can can carry
+/// Pick Up Items of type Construction to a Game Object with this
+/// component.  If a user-defined number of Construction items are
+/// consumed, then the nest will be flagged as fully constructed.
+/// </summary>
 public class HatchlingController : MonoBehaviour
 {
     [Tooltip("The number of construction items needed for the nest to "
              + "be fully built")]
     public int constructionMaterialsNeeded = 3;
+
     public int ConstructionMaterialsConsumed
     {
         get { return _constructionMaterialsConsumed; }
     }
 
+    public bool FullyConstructed {
+        get { return _fullyConstructed; }
+    }
+
     private int _constructionMaterialsConsumed;
-    private PickUpReceiver pickUpReceiver;
+    private bool _fullyConstructed;
 
     void Start()
     {
-        pickUpReceiver = GetComponent<PickUpReceiver>();
         _constructionMaterialsConsumed = 0;
+        _fullyConstructed = false;
     }
 
     public void AddConstructionItem()
@@ -30,6 +42,7 @@ public class HatchlingController : MonoBehaviour
 
         if (_constructionMaterialsConsumed == constructionMaterialsNeeded)
         {
+            _fullyConstructed = true;
             Debug.Log("Nest fully constructed");
         }
         else
