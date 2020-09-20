@@ -63,6 +63,7 @@ public class BirdController : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+
     }
 
     void FixedUpdate()
@@ -71,19 +72,17 @@ public class BirdController : MonoBehaviour
         {
             calcMovement(horizontal, vertical);
             calcHunger(horizontal, vertical);
-            calcFlip(horizontal, vertical);  
+            calcFlip(horizontal, vertical);
         }
     }
 
-    private void calcMovement( float horizontal, float vertical )
-    {
-        Vector2 position = rigidbody2d.position;
-        position.x += (horizontal > 0.0f ? forwardSpeed : slowSpeed) * horizontal * Time.deltaTime;
-        position.y += (vertical > 0.0f ? upwardSpeed : diveSpeed) * vertical * Time.deltaTime;
-        rigidbody2d.MovePosition(position);
-
+    private void calcMovement(float horizontal, float vertical)
+    { 
         animator.SetFloat("Move X", flipped_f ? -horizontal : horizontal);
         animator.SetFloat("Move Y", vertical);
+        
+        //apply force to rigid body 2d
+        rigidbody2d.AddForce(new Vector2((horizontal > 0.0f ? forwardSpeed : slowSpeed) * horizontal, (vertical > 0.0f ? upwardSpeed : diveSpeed) * vertical));
     }
 
     private void calcHunger(float horizontal, float vertical)
@@ -91,7 +90,7 @@ public class BirdController : MonoBehaviour
         if (vertical > 0.0f)
         {
             upwardTimer -= Time.deltaTime;
-            if (upwardTimer < 0.0f )
+            if (upwardTimer < 0.0f)
             {
                 upwardTimer = hungerFrequency;
                 ChangeHunger(hungerDelta);
@@ -102,11 +101,11 @@ public class BirdController : MonoBehaviour
     private void calcFlip(float horizontal, float vertical)
     {
         float tempSwap;
-        if( flipped_f == false && horizontal < 0.0f  
-                || flipped_f == true && horizontal > 0.0f )
+        if (flipped_f == false && horizontal < 0.0f
+                || flipped_f == true && horizontal > 0.0f)
         {
             flipTimer -= Time.deltaTime;
-            if( flipTimer < 0.0f )
+            if (flipTimer < 0.0f)
             {
                 characterScale.x = -1.0f * characterScale.x;
                 transform.localScale = characterScale;
@@ -117,19 +116,19 @@ public class BirdController : MonoBehaviour
                 flipTimer = flipDuration;
             }
         }
-        else if( flipTimer != flipDuration )
+        else if (flipTimer != flipDuration)
         {
             flipTimer = flipDuration;
         }
     }
 
 
-    void ChangeHealth( int amount )
+    void ChangeHealth(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
     }
 
-    void ChangeHunger( int amount )
+    void ChangeHunger(int amount)
     {
         currentHunger = Mathf.Clamp(currentHunger + amount, 0, maxHunger);
         Debug.Log("Hunger: " + currentHunger + "/" + maxHunger);
