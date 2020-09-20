@@ -25,11 +25,6 @@ public class TitleController : MonoBehaviour
         Button CreditsButton = CreditsButtonObject.GetComponent<Button>();
         CreditsButton.onClick.AddListener(OnCreditsClicked);
 
-        //Add exit button listener
-        GameObject ExitButtonObject = GameObject.Find("/Canvas/Exit Button");
-        Button ExitButton = ExitButtonObject.GetComponent<Button>();
-        ExitButton.onClick.AddListener(OnExitClicked);
-
         //Initiate current level index
         CurrentLevelIndex = null;
     }
@@ -49,12 +44,6 @@ public class TitleController : MonoBehaviour
     {
         //load credits scene
         SceneManager.LoadScene("Credits", LoadSceneMode.Single);
-    }
-
-    void OnExitClicked()
-    {
-        //exit game
-        Application.Quit();
     }
 
     void NextLevelCallback()
