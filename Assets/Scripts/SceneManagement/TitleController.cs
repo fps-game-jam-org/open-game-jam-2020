@@ -10,7 +10,7 @@ public class TitleController : MonoBehaviour
     public string[] Levels;
 
     //Has the next level callback been added to the current level scene
-    bool nextLevelCallbackSet = true;
+    bool levelCallbacksSet = true;
 
     //Current level being played
     private static int CurrentLevelIndex;
@@ -43,13 +43,14 @@ public class TitleController : MonoBehaviour
         //add next level callback to level scene
         Scene currentScene = SceneManager.GetActiveScene();
 
-        if (currentScene.name == Levels[CurrentLevelIndex] && !nextLevelCallbackSet)
+        if (currentScene.name == Levels[CurrentLevelIndex] && !levelCallbacksSet)
         {
             GameStateController levelGameStateController = GameObject.Find("/Game State Controller").GetComponent<GameStateController>();
             levelGameStateController.onNextLevelClick += NextLevelCallback;
-            nextLevelCallbackSet = true;
+            levelGameStateController.onRetryLevelClick += RetryLevelCallback;
+            levelCallbacksSet = true;
         }
-        else if (currentScene.name != Levels[CurrentLevelIndex] && !nextLevelCallbackSet)
+        else if (currentScene.name != Levels[CurrentLevelIndex] && !levelCallbacksSet)
         {
             SceneManager.SetActiveScene(SceneManager.GetSceneByName(Levels[CurrentLevelIndex]));
         }
@@ -61,7 +62,7 @@ public class TitleController : MonoBehaviour
         if (Levels.Length > 0 && !string.IsNullOrEmpty(Levels[0]))
         {
             CurrentLevelIndex = 0;
-            nextLevelCallbackSet = false;
+            levelCallbacksSet = false;
             SceneManager.LoadScene(Levels[0], LoadSceneMode.Additive);
         }
     }
@@ -80,16 +81,26 @@ public class TitleController : MonoBehaviour
 
     void NextLevelCallback()
     {
-        //unload previous level scene
+        //unload current level scene
         SceneManager.UnloadScene(Levels[CurrentLevelIndex]);
 
         if (CurrentLevelIndex < Levels.Length - 1)
         {
             //load next level scene
             CurrentLevelIndex++;
-            nextLevelCallbackSet = false;
+            levelCallbacksSet = false;
             SceneManager.LoadScene(Levels[CurrentLevelIndex], LoadSceneMode.Additive);
         }
+    }
+
+    void RetryLevelCallback()
+    {
+        //unload current level scene
+        SceneManager.UnloadScene(Levels[CurrentLevelIndex]);
+
+        //reload current level
+        levelCallbacksSet = false;
+        SceneManager.LoadScene(Levels[CurrentLevelIndex], LoadSceneMode.Additive);
     }
 
 }

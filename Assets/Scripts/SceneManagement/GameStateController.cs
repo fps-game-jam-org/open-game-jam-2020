@@ -26,6 +26,9 @@ public class GameStateController : MonoBehaviour
     //Next level click event
     public delegate void OnNextLevelClick();
     public event OnNextLevelClick onNextLevelClick;
+    //Retry level click event
+    public delegate void OnRetryLevelClick();
+    public event OnRetryLevelClick onRetryLevelClick;
 
     //Game clock
     private float gameClock;
@@ -142,15 +145,14 @@ public class GameStateController : MonoBehaviour
             {
                 score = Random.Range(100.0f, 10000.0f);
 
-                // if (Random.Range(0.0f, 1.0f) > 0.5f)
-                // {
-                //     nextState = State.Win;
-                // }
-                // else
-                // {
-                //     nextState = State.Lose;
-                // }
-                nextState = State.Win;
+                if (Random.Range(0.0f, 1.0f) > 0.5f)
+                {
+                    nextState = State.Win;
+                }
+                else
+                {
+                    nextState = State.Lose;
+                }
             }
         }
 
@@ -231,14 +233,13 @@ public class GameStateController : MonoBehaviour
         }
     }
 
-    //on retry / replay level click restart scene
+    //on retry / replay level click call retry level event
     private void RetryLevelClickCallback()
     {
-        //TODO replay level from the title controller
-
-        //restart level by getting the current scene build index and reload it
-        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
-        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
+        if (onRetryLevelClick != null)
+        {
+            onRetryLevelClick();
+        }
     }
 
     //on exit click send back to title scene
