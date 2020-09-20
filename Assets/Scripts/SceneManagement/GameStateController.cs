@@ -1,10 +1,15 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 using TMPro;
 
 public class GameStateController : MonoBehaviour
 {
+    //Level score
+    private float score;
+
     //Level number
     //TODO get level number from scene controller
     private int levelNumber;
@@ -15,6 +20,12 @@ public class GameStateController : MonoBehaviour
     //How long to show the level intro
     [Tooltip("Duration of level intro with level number")]
     public float LevelIntroDuration = 3;
+
+    //Level end
+    private GameObject levelEnd;
+    //Next level click event
+    public delegate void OnNextLevelClick();
+    public event OnNextLevelClick onNextLevelClick;
 
     //Game clock
     private float gameClock;
@@ -48,11 +59,39 @@ public class GameStateController : MonoBehaviour
 
         //Initialize level intro game object
         levelIntro = GameObject.Find("/Game State Controller/Level Intro");
-        levelIntro.SetActive(false);
-
         //Initialize level intro text
         levelIntroText = GameObject.Find("/Game State Controller/Level Intro/Canvas/Level").GetComponent<TextMeshProUGUI>();
-        levelIntroText.enabled = true;
+        levelIntro.SetActive(false);
+
+        //initialize level end game object
+        levelEnd = GameObject.Find("/Game State Controller/Level End");
+
+        //Initialize next level click event
+        EventTrigger nextLevelButton = GameObject.Find("/Game State Controller/Level End/Canvas/Next Level").GetComponent<EventTrigger>();
+        EventTrigger.Entry nextLevelEntry = new EventTrigger.Entry();
+        nextLevelEntry.eventID = EventTriggerType.PointerClick;
+        nextLevelEntry.callback.AddListener((eventData) => { NextLevelClickCallback(); });
+        nextLevelButton.triggers.Add(nextLevelEntry);
+
+        //Initialize retry level click event
+        EventTrigger retryLevelButton = GameObject.Find("/Game State Controller/Level End/Canvas/Retry Level").GetComponent<EventTrigger>();
+        EventTrigger.Entry retryLevelEntry = new EventTrigger.Entry();
+        retryLevelEntry.eventID = EventTriggerType.PointerClick;
+        retryLevelEntry.callback.AddListener((eventData) => { RetryLevelClickCallback(); });
+        retryLevelButton.triggers.Add(retryLevelEntry);
+
+        //Initialize exit level click event
+        EventTrigger exitLevelButton = GameObject.Find("/Game State Controller/Level End/Canvas/Exit Level").GetComponent<EventTrigger>();
+        EventTrigger.Entry exitLevelEntry = new EventTrigger.Entry();
+        exitLevelEntry.eventID = EventTriggerType.PointerClick;
+        exitLevelEntry.callback.AddListener((eventData) => { ExitLevelClickCallback(); });
+        exitLevelButton.triggers.Add(exitLevelEntry);
+
+        levelEnd.SetActive(false);
+
+
+        //Initialize level score
+        score = 0;
 
     }
 
@@ -98,19 +137,33 @@ public class GameStateController : MonoBehaviour
         //Game state: level is being played
         if (currentState == State.Run)
         {
+            //TODO used for testing, remove
+            if (gameClock > LevelIntroDuration + 3)
+            {
+                score = Random.Range(100.0f, 10000.0f);
 
+                // if (Random.Range(0.0f, 1.0f) > 0.5f)
+                // {
+                //     nextState = State.Win;
+                // }
+                // else
+                // {
+                //     nextState = State.Lose;
+                // }
+                nextState = State.Win;
+            }
         }
 
         //Win state: level passed
         if (currentState == State.Win)
         {
-
+            ShowLevelEnd();
         }
 
         //Lose state: level failed
         if (currentState == State.Lose)
         {
-
+            ShowLevelEnd();
         }
 
     }
@@ -130,5 +183,65 @@ public class GameStateController : MonoBehaviour
         {
             levelIntro.SetActive(false);
         }
+    }
+
+    private void ShowLevelEnd()
+    {
+        //show level end game object
+        levelEnd.SetActive(true);
+
+        //set score text
+        TextMeshProUGUI scoreText = GameObject.Find("/Game State Controller/Level End/Canvas/Score").GetComponent<TextMeshProUGUI>();
+        scoreText.text = $"Score: {score}";
+
+        TextMeshProUGUI endStateText = GameObject.Find("/Game State Controller/Level End/Canvas/End State").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI nextLevelText = GameObject.Find("/Game State Controller/Level End/Canvas/Next Level").GetComponent<TextMeshProUGUI>();
+        TextMeshProUGUI retryLevelText = GameObject.Find("/Game State Controller/Level End/Canvas/Retry Level").GetComponent<TextMeshProUGUI>();
+        if (currentState == State.Win)
+        {
+            //show win text
+            endStateText.text = "You Won!";
+
+            //enable next level button
+            nextLevelText.enabled = true;
+
+            //set retry button text to 'replay'
+            retryLevelText.text = "Replay Level";
+        }
+
+        if (currentState == State.Lose)
+        {
+            //show lose text
+            endStateText.text = "You Lost :(";
+
+            //disable next level button
+            nextLevelText.enabled = false;
+
+            //set retry button text to retry
+            retryLevelText.text = "Retry Level";
+        }
+    }
+
+    //on next level click call next level event
+    private void NextLevelClickCallback()
+    {
+        if (onNextLevelClick != null)
+        {
+            onNextLevelClick();
+        }
+    }
+
+    //on retry / replay level click restart scene
+    private void RetryLevelClickCallback()
+    {
+        //restart level by getting the current scene build index and reload it
+        int sceneIndex = SceneManager.GetActiveScene().buildIndex;
+        SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
+    }
+
+    //on exit click send back to title scene
+    private void ExitLevelClickCallback()
+    {
+        SceneManager.LoadScene("Title", LoadSceneMode.Single);
     }
 }
