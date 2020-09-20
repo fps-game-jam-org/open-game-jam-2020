@@ -234,6 +234,8 @@ public class GameStateController : MonoBehaviour
     //on retry / replay level click restart scene
     private void RetryLevelClickCallback()
     {
+        //TODO replay level from the title controller
+
         //restart level by getting the current scene build index and reload it
         int sceneIndex = SceneManager.GetActiveScene().buildIndex;
         SceneManager.LoadScene(sceneIndex, LoadSceneMode.Single);
