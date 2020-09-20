@@ -1,0 +1,767 @@
+fileFormatVersion: 2
+guid: 4c7e90674c0586843be6709c2b6b0950
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1905415765886142027
+    second: bird template_1
+  - first:
+      213: -8395137468372992891
+    second: bird template_0
+  - first:
+      213: 3670411499582099572
+    second: bird template_1
+  - first:
+      213: 4343761052379877513
+    second: bird template_2
+  - first:
+      213: -2113326276606151350
+    second: bird template_3
+  - first:
+      213: 4824009608674177497
+    second: bird template_4
+  - first:
+      213: -1892079506353966327
+    second: bird template_5
+  - first:
+      213: 6373612009850939393
+    second: bird template_6
+  - first:
+      213: 6835919860292601514
+    second: bird template_7
+  - first:
+      213: -873583671544699557
+    second: bird template_8
+  - first:
+      213: 5361748906549405871
+    second: bird template_9
+  - first:
+      213: -212903984339474109
+    second: bird template_10
+  - first:
+      213: 809566755125493868
+    second: bird template_11
+  - first:
+      213: -7230051921575582183
+    second: bird template_12
+  - first:
+      213: 861814103952970690
+    second: bird template_13
+  - first:
+      213: -7336698002224913586
+    second: bird template_14
+  - first:
+      213: 4629282812685959372
+    second: bird template_15
+  - first:
+      213: 2067296759056878059
+    second: bird template_16
+  - first:
+      213: 3348767961905481440
+    second: bird template_17
+  - first:
+      213: 4796014939628800281
+    second: bird template_18
+  - first:
+      213: -5604069562856667474
+    second: bird template_19
+  - first:
+      213: -7520854484234965325
+    second: bird template_20
+  - first:
+      213: -7692851755126469498
+    second: bird template_21
+  - first:
+      213: 8416151130152705886
+    second: bird template_22
+  - first:
+      213: -3803520920945567458
+    second: bird template_23
+  - first:
+      213: -8458161072220389382
+    second: bird template_24
+  - first:
+      213: 4077308890418500266
+    second: bird template_25
+  - first:
+      213: 8547671058358721005
+    second: bird template_26
+  - first:
+      213: 3566458321090614577
+    second: bird template_27
+  - first:
+      213: 2201156048226735697
+    second: bird template_28
+  - first:
+      213: -2442295286364066430
+    second: bird template_29
+  - first:
+      213: 7852222147972100092
+    second: bird template_30
+  - first:
+      213: 4066704235736735112
+    second: bird template_31
+  - first:
+      213: -1858811204995543293
+    second: bird template_32
+  - first:
+      213: 2880173400753997465
+    second: bird template_33
+  - first:
+      213: -2609726623789281985
+    second: bird template_34
+  - first:
+      213: -8697204598480133660
+    second: bird template_35
+  - first:
+      213: 5649943183543402242
+    second: bird template_36
+  - first:
+      213: 6507343893804480042
+    second: bird template_37
+  - first:
+      213: -7936574902137248175
+    second: bird template_38
+  - first:
+      213: -3008145494664127059
+    second: bird template_39
+  - first:
+      213: 6025785760306695274
+    second: bird template_40
+  - first:
+      213: -1633167089487497260
+    second: bird template_41
+  - first:
+      213: 2941436085052516708
+    second: bird template_42
+  - first:
+      213: -2814830542374820507
+    second: bird template_43
+  - first:
+      213: 2303356496978855875
+    second: bird template_44
+  - first:
+      213: -2444195795600823401
+    second: bird template_45
+  - first:
+      213: -4078329644552043920
+    second: bird template_46
+  - first:
+      213: -4397037784942319188
+    second: bird template_47
+  - first:
+      213: -6180384387548847847
+    second: bird template_48
+  - first:
+      213: -5536849733770625877
+    second: bird template_49
+  - first:
+      213: 7621955818658774587
+    second: bird template_50
+  - first:
+      213: 6743572871918449609
+    second: bird template_51
+  - first:
+      213: 5331817570047383207
+    second: bird template_52
+  - first:
+      213: 7210569149062252209
+    second: bird template_53
+  - first:
+      213: -4539289172738348687
+    second: bird template_54
+  - first:
+      213: 1547608693779460194
+    second: bird template_55
+  - first:
+      213: -377100506029967851
+    second: bird template_56
+  - first:
+      213: -8034561633093629275
+    second: bird template_57
+  - first:
+      213: -5308467165334003629
+    second: bird template_58
+  - first:
+      213: -5746946630892443525
+    second: bird template_59
+  - first:
+      213: -6687162617514913671
+    second: bird template_60
+  - first:
+      213: -870998565548104976
+    second: bird template_61
+  - first:
+      213: 4470624264540586230
+    second: bird template_62
+  - first:
+      213: 6620149549824671888
+    second: bird template_63
+  - first:
+      213: -5528706792196641751
+    second: bird template_64
+  - first:
+      213: 7519387177736634897
+    second: bird template_65
+  - first:
+      213: -5096203739665799378
+    second: bird template_66
+  - first:
+      213: 6986101561866927897
+    second: bird template_67
+  - first:
+      213: 1018009621209634111
+    second: bird template_68
+  - first:
+      213: 7471061107624118946
+    second: bird template_69
+  - first:
+      213: 8918362062717807249
+    second: bird template_70
+  - first:
+      213: -5875560555844566577
+    second: bird template_71
+  - first:
+      213: -2315783854820225004
+    second: bird template_72
+  - first:
+      213: 548983309976437951
+    second: bird template_73
+  - first:
+      213: -3740010728994526926
+    second: bird template_74
+  - first:
+      213: -3050251556900695132
+    second: bird template_75
+  - first:
+      213: 8375708965919522964
+    second: bird template_76
+  - first:
+      213: 2853982747416045006
+    second: bird template_77
+  - first:
+      213: -819267503623614874
+    second: bird template_78
+  - first:
+      213: -1575751342785582620
+    second: bird template_79
+  - first:
+      213: 8136333128482045385
+    second: bird template_80
+  - first:
+      213: 3647185054788783788
+    second: bird template_81
+  - first:
+      213: 6889113224619579991
+    second: bird template_82
+  - first:
+      213: 6450242289353037750
+    second: bird template_83
+  - first:
+      213: -1249809672150298425
+    second: bird template_84
+  - first:
+      213: -2616003304100400638
+    second: bird template_85
+  - first:
+      213: -5703006598589067524
+    second: bird template_86
+  - first:
+      213: 8665283285842058635
+    second: bird template_87
+  - first:
+      213: 6527195829534851706
+    second: bird template_88
+  - first:
+      213: 8891819186523540432
+    second: bird template_89
+  - first:
+      213: -7072727155431037114
+    second: bird template_90
+  - first:
+      213: -6205681973328766763
+    second: bird template_91
+  - first:
+      213: 4738659206691767967
+    second: bird template_92
+  - first:
+      213: 755917806196047989
+    second: bird template_93
+  - first:
+      213: -4852180359619875809
+    second: bird template_94
+  - first:
+      213: -5299453049786136508
+    second: bird template_95
+  - first:
+      213: 2754803139437534118
+    second: bird template_96
+  - first:
+      213: -4855624395619353119
+    second: bird template_97
+  - first:
+      213: -8981912144612243803
+    second: bird template_0
+  - first:
+      213: 2180950355195715626
+    second: bird template_2
+  - first:
+      213: 3625121482003781990
+    second: bird template_3
+  - first:
+      213: -8404286239614400308
+    second: bird template_4
+  - first:
+      213: 88364235899811311
+    second: bird template_5
+  - first:
+      213: -640609573302805706
+    second: bird template_6
+  - first:
+      213: 962479084533637657
+    second: bird template_7
+  - first:
+      213: 1923344743112406775
+    second: bird template_8
+  - first:
+      213: -8568937739868950621
+    second: bird template_9
+  externalObjects: {}
+  serializedVersion: 11
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: -1
+    aniso: -1
+    mipBias: -100
+    wrapU: 1
+    wrapV: 1
+    wrapW: -1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 100
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  applyGammaDecoding: 0
+  platformSettings:
+  - serializedVersion: 3
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: Windows Store Apps
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 3
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: bird template_1
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 335
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 470991cefcbefe230800000000000000
+      internalID: 3670411499582099572
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird template_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 335
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a6ce902e76d95380800000000000000
+      internalID: -8981912144612243803
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird template_2
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 335
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a20e33afaca444e10800000000000000
+      internalID: 2180950355195715626
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird template_3
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 335
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 669197af7c40f4230800000000000000
+      internalID: 3625121482003781990
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird template_4
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 335
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc88411613afd5b80800000000000000
+      internalID: -8404286239614400308
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird template_5
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 168
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe538abedcee93100800000000000000
+      internalID: 88364235899811311
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird template_6
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 168
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 63b5297bcf81c17f0800000000000000
+      internalID: -640609573302805706
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird template_7
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 168
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 912ee51c0a96b5d00800000000000000
+      internalID: 962479084533637657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird template_8
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 168
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7f674d18ad711ba10800000000000000
+      internalID: 1923344743112406775
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird template_9
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 168
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3af2ca89684051980800000000000000
+      internalID: -8568937739868950621
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird template_10
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3492e2a44fc9b0df0800000000000000
+      internalID: -212903984339474109
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird template_11
+      rect:
+        serializedVersion: 2
+        x: 180
+        y: 1
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c60883daca82c3b00800000000000000
+      internalID: 809566755125493868
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird template_12
+      rect:
+        serializedVersion: 2
+        x: 360
+        y: 1
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9166bd27512b9ab90800000000000000
+      internalID: -7230051921575582183
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird template_13
+      rect:
+        serializedVersion: 2
+        x: 540
+        y: 1
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2c3d9888c57c5fb00800000000000000
+      internalID: 861814103952970690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: bird template_14
+      rect:
+        serializedVersion: 2
+        x: 720
+        y: 1
+        width: 180
+        height: 167
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e43e019d900de2a90800000000000000
+      internalID: -7336698002224913586
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    physicsShape: []
+    bones: []
+    spriteID: 5f0b13f440dfa364787af310145432cc
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+  spritePackingTag: 
+  pSDRemoveMatte: 0
+  pSDShowRemoveMatteOption: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
