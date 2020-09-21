@@ -2,6 +2,15 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
+/// <summary>
+/// Add this component to a GameObject to make it automatically follow
+/// the position of another GameObject birdToFollow.  It selects a
+/// position to go to that's within a radius followRadius of
+/// birdToFollow, then travels with constant acceleration to that point.
+/// It then stalls for stallTime seconds.  If it's unable to get to the
+/// target point, it'll select a new target after timeoutTime seconds.
+/// </summary>
 class FledglingController : MonoBehaviour
 {
     [Tooltip("The fledgling will track the position of this GameObject")]
