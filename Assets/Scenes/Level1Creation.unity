@@ -1184,6 +1184,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 694683890727531657, guid: ace011d53a2504f9cbc27c8228a2f2c6,
+        type: 3}
+      propertyPath: winText
+      value: 
+      objectReference: {fileID: 1225896411}
     - target: {fileID: 4324186277587140504, guid: ace011d53a2504f9cbc27c8228a2f2c6,
         type: 3}
       propertyPath: m_LocalPosition.x
@@ -2062,7 +2067,7 @@ GameObject:
   - component: {fileID: 1225896412}
   - component: {fileID: 1225896411}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: WinText (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
