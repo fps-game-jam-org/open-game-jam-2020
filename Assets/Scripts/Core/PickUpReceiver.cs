@@ -28,7 +28,6 @@ public class PickUpReceiver : MonoBehaviour
 
     private void EatFood(PickUpItem item)
     {
-        Debug.Log("I got some food");
         Destroy(item.gameObject);
         item.GetComponentInParent<PickUpCarrier>().DropItem();
     }
@@ -39,12 +38,12 @@ public class PickUpReceiver : MonoBehaviour
             GetComponent<HatchlingController>();
         if (hatchlingController != null)
         {
+            hatchlingController.AddConstructionItem();
             if (hatchlingController.ConstructionMaterialsConsumed < 3)
             {
                 item.GetComponentInParent<PickUpCarrier>().DropItem();
                 Destroy(item.gameObject);
             }
-            hatchlingController.AddConstructionItem();
         }
     }
 }
