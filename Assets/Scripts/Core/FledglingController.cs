@@ -73,7 +73,14 @@ class FledglingController : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        birdToFollow = other.gameObject;
+        if (useTrigger)
+        {
+            Debug.Log(other.gameObject.name);
+            if (other.gameObject.tag == "WarmBody")
+            {
+                birdToFollow = other.gameObject;
+            }
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
