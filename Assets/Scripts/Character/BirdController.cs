@@ -11,16 +11,16 @@ public class BirdController : MonoBehaviour
     public int maxHunger = 100;
 
     [Tooltip("Float variable to control speed for moving forward")]
-    public float forwardSpeed = 4.0f;
+    public float forwardSpeed = 10.0f;
 
     [Tooltip("Float variable to control backwards movement")]
-    public float slowSpeed = 1.0f;
+    public float slowSpeed = 2.0f;
 
     [Tooltip("Float variable to control how quickly the bird ascends")]
-    public float upwardSpeed = 3.0f;
+    public float upwardSpeed = 20.0f;
 
     [Tooltip("Float variable to control how quickly the bird descends")]
-    public float diveSpeed = 6.0f;
+    public float diveSpeed = 30.0f;
 
     [Tooltip("Float variable that specifies the number of seconds of upward movement"
                 + "required to increase hunger")]
@@ -31,6 +31,12 @@ public class BirdController : MonoBehaviour
 
     [Tooltip("Float variable that determines how long to hold backwards before turning around")]
     public float flipDuration = 1.0f;
+
+    [Tooltip("Max velocity variable")]
+    public float maxVelocity = 20.0f;
+
+    [Tooltip("How much health is lost at max hunger")]
+    public int hungerHealthLoss = -1;
 
     public int health { get { return currentHealth; } }
     public int hunger { get { return currentHunger; } }
@@ -63,7 +69,6 @@ public class BirdController : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
-
     }
 
     void FixedUpdate()
@@ -80,9 +85,11 @@ public class BirdController : MonoBehaviour
     { 
         animator.SetFloat("Move X", flipped_f ? -horizontal : horizontal);
         animator.SetFloat("Move Y", vertical);
-        
+
         //apply force to rigid body 2d
-        rigidbody2d.AddForce(new Vector2((horizontal > 0.0f ? forwardSpeed : slowSpeed) * horizontal, (vertical > 0.0f ? upwardSpeed : diveSpeed) * vertical));
+        rigidbody2d.AddForce(new Vector2((horizontal > 0.0f ? forwardSpeed : slowSpeed) * horizontal, 
+                                (vertical > 0.0f ? upwardSpeed : diveSpeed) * vertical));
+        rigidbody2d.velocity = Vector2.ClampMagnitude(rigidbody2d.velocity, maxVelocity);
     }
 
     private void calcHunger(float horizontal, float vertical)
@@ -126,11 +133,25 @@ public class BirdController : MonoBehaviour
     void ChangeHealth(int amount)
     {
         currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+        Debug.Log("Health: " + currentHealth + "/" + maxHealth);
+        if (currentHealth <= 0)
+        {
+            Debug.Log("Health has dropped to 0, death awaits you");
+            characterScale.y = -1.0f * characterScale.y;
+            transform.localScale = characterScale;
+            DisableMovement();
+            Destroy(gameObject,3);
+        }
     }
 
     void ChangeHunger(int amount)
     {
         currentHunger = Mathf.Clamp(currentHunger + amount, 0, maxHunger);
+        if(currentHunger >= maxHunger)
+        {
+            Debug.Log("Losing health from hungher");
+            ChangeHealth(hungerHealthLoss);
+        }
         Debug.Log("Hunger: " + currentHunger + "/" + maxHunger);
     }
 

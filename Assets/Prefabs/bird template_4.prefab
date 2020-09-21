@@ -14,9 +14,10 @@ GameObject:
   - component: {fileID: 3364228167461259532}
   - component: {fileID: 6172354608689924299}
   - component: {fileID: 2010434537428270979}
+  - component: {fileID: 1919596314}
   m_Layer: 0
   m_Name: bird template_4
-  m_TagString: Untagged
+  m_TagString: WarmBody
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -100,13 +101,15 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 5
   maxHunger: 100
-  forwardSpeed: 4
-  slowSpeed: 1
-  upwardSpeed: 8
-  diveSpeed: 2
+  forwardSpeed: 10
+  slowSpeed: 2
+  upwardSpeed: 20
+  diveSpeed: 30
   hungerFrequency: 1
-  hungerDelta: 2
+  hungerDelta: 10
   flipDuration: 1
+  maxVelocity: 20
+  hungerHealthLoss: -5
 --- !u!50 &3364228167461259532
 Rigidbody2D:
   serializedVersion: 4
@@ -173,3 +176,15 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.8, y: 1.67}
   m_EdgeRadius: 0
+--- !u!114 &1919596314
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3364228167461259528}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 25a79a7c43fb64c1abf1ba279b522641, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
