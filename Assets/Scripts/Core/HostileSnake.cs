@@ -13,6 +13,9 @@ public class HostileSnake : MonoBehaviour
     [Tooltip("Float variable that determines how long until the snake turns around")]
     public float turnaroundTime = 10.0f;
 
+    [Tooltip("How much damage is done ( e.g. -1 will reduce birb health by 1")]
+    public int damage = -1;
+
     private float horizontal;
     private float flipTimer;
     private bool movementEnabled = true;
@@ -76,7 +79,7 @@ public class HostileSnake : MonoBehaviour
 
         if (player != null)
         {
-            player.ChangeHealth(-1);
+            player.ChangeHealth(damage);
         }
     }
 
