@@ -35,21 +35,11 @@ public class HatchlingController : MonoBehaviour
 
     public void AddConstructionItem()
     {
-        _constructionMaterialsConsumed =
-            Mathf.Clamp(++_constructionMaterialsConsumed,
-                        0,
-                        constructionMaterialsNeeded);
+        _constructionMaterialsConsumed = _constructionMaterialsConsumed + 1;
 
         if (_constructionMaterialsConsumed == constructionMaterialsNeeded)
         {
             _fullyConstructed = true;
-            Debug.Log("Nest fully constructed");
-        }
-        else
-        {
-            Debug.Log("Nest construction "
-                      + $"{_constructionMaterialsConsumed}"
-                      + $"/{constructionMaterialsNeeded}");
         }
     }
 }
