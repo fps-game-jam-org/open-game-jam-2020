@@ -30,6 +30,7 @@ public class PickUpReceiver : MonoBehaviour
     {
         Debug.Log("I got some food");
         Destroy(item.gameObject);
+        item.GetComponentInParent<PickUpCarrier>().DropItem();
     }
 
     private void AddConstruction(PickUpItem item)
