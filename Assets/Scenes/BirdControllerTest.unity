@@ -382,6 +382,11 @@ PrefabInstance:
       propertyPath: m_Name
       value: Birb_final
       objectReference: {fileID: 0}
+    - target: {fileID: 3364228167461259528, guid: 3a081dba336d49b49acffc1969306984,
+        type: 3}
+      propertyPath: m_TagString
+      value: WarmBody
+      objectReference: {fileID: 0}
     - target: {fileID: 3364228167461259534, guid: 3a081dba336d49b49acffc1969306984,
         type: 3}
       propertyPath: m_LocalPosition.x
