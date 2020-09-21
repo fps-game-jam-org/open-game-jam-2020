@@ -32,17 +32,27 @@ class FledglingController : MonoBehaviour
              + "target position [s]")]
     public float timeoutTime = 10.0f;
 
+    [Tooltip("Check this if you'd like for the fledgling to only follow "
+             + "if birdToFollow is within a trigger attached to this "
+             + "gameObject")]
+    public bool useTrigger = false;
+
 
     private bool _isStalling;
     private float _waypointSelectedTime;
     private float _waypointArriveTime;
+    private Vector3 _homePosition;
     private Vector3 _waypoint;
     private Rigidbody2D _rigidbody;
+    private SpriteRenderer _spriteRenderer;
     private const float DISTANCE_THRESHOLD = 0.1f;
 
     void Start()
     {
+        _homePosition = transform.position;
+        _waypoint = _homePosition;
         _rigidbody = GetComponent<Rigidbody2D>();
+        _spriteRenderer = GetComponent<SpriteRenderer>();
     }
 
     void FixedUpdate()
@@ -61,16 +71,39 @@ class FledglingController : MonoBehaviour
         }
     }
 
+    void OnTriggerEnter2D(Collider2D other)
+    {
+        birdToFollow = other.gameObject;
+    }
+
+    void OnTriggerExit2D(Collider2D other)
+    {
+        if (other.gameObject == birdToFollow)
+        {
+            birdToFollow = null;
+        }
+    }
+
     private Vector3 ChooseWayPoint()
     {
-        _waypointSelectedTime = Time.fixedTime;
-        _isStalling = false;
-        float distance = Random.Range(0, followRadius);
-        float angle = Random.Range(0, 2*Mathf.PI);
-        Vector3 displacement = new Vector3(distance*Mathf.Cos(angle),
-                                           distance*Mathf.Sin(angle),
-                                           0);
-        return birdToFollow.transform.position + displacement;
+        if (birdToFollow != null)
+        {
+            _waypointSelectedTime = Time.fixedTime;
+            _isStalling = false;
+            float distance = Random.Range(0, followRadius);
+            float angle = Random.Range(0, 2*Mathf.PI);
+            Vector3 displacement = new Vector3(distance*Mathf.Cos(angle),
+                                               distance*Mathf.Sin(angle),
+                                               0);
+            return birdToFollow.transform.position + displacement;
+        }
+        else
+        {
+            Debug.Log("null");
+            _isStalling = true;
+            _waypointArriveTime = Time.fixedTime;
+            return _homePosition;
+        }
     }
 
     private void MoveToWayPoint()
@@ -81,6 +114,10 @@ class FledglingController : MonoBehaviour
             Vector2 force = acceleration 
                 * ((Vector2) (_waypoint - transform.position)).normalized;
             _rigidbody.AddForce(force);
+            if (_rigidbody.velocity.x > 0)
+            {
+
+            }
         }
         else
         {
