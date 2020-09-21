@@ -38,6 +38,9 @@ public class BirdController : MonoBehaviour
     [Tooltip("How much health is lost at max hunger")]
     public int hungerHealthLoss = -1;
 
+    [Tooltip("Time (seconds) until you can take damage again")]
+    public float healthInvincDuration = 1.0f;
+
     public int health { get { return currentHealth; } }
     public int hunger { get { return currentHunger; } }
     private int currentHealth;
@@ -47,9 +50,11 @@ public class BirdController : MonoBehaviour
     private bool movementEnabled = true;
     private float upwardTimer;
     private float flipTimer;
+    private float healthInvincTimer;
     private Rigidbody2D rigidbody2d;
     private Animator animator;
     private bool flipped_f = false;
+    private bool invincible_f = false;
 
     private Vector3 characterScale;
 
@@ -69,6 +74,15 @@ public class BirdController : MonoBehaviour
     {
         horizontal = Input.GetAxis("Horizontal");
         vertical = Input.GetAxis("Vertical");
+        if(invincible_f)
+        {
+            healthInvincTimer -= Time.deltaTime;
+            if (healthInvincTimer <= 0.0f)
+            {
+                healthInvincTimer = healthInvincDuration;
+                invincible_f = false;
+            }
+        }
     }
 
     void FixedUpdate()
@@ -130,17 +144,22 @@ public class BirdController : MonoBehaviour
     }
 
 
-    void ChangeHealth(int amount)
+    public void ChangeHealth(int amount)
     {
-        currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
-        Debug.Log("Health: " + currentHealth + "/" + maxHealth);
-        if (currentHealth <= 0)
+        if (!invincible_f)
         {
-            Debug.Log("Health has dropped to 0, death awaits you");
-            characterScale.y = -1.0f * characterScale.y;
-            transform.localScale = characterScale;
-            DisableMovement();
-            Destroy(gameObject,3);
+            healthInvincTimer = healthInvincDuration;
+            invincible_f = true;
+            currentHealth = Mathf.Clamp(currentHealth + amount, 0, maxHealth);
+            Debug.Log("Health: " + currentHealth + "/" + maxHealth);
+            if (currentHealth <= 0)
+            {
+                Debug.Log("Health has dropped to 0, death awaits you");
+                characterScale.y = -1.0f * characterScale.y;
+                transform.localScale = characterScale;
+                DisableMovement();
+                Destroy(gameObject, 3);
+            }
         }
     }
 
