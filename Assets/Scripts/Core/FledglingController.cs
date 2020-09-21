@@ -51,9 +51,11 @@ class FledglingController : MonoBehaviour
         {
             MoveToWayPoint();
         }
-        
-        if (Time.fixedTime - _waypointArriveTime > stallTime
-            || Time.fixedTime > _waypointSelectedTime + timeoutTime)
+        else if (Time.fixedTime > _waypointArriveTime + stallTime)
+        {
+            _waypoint = ChooseWayPoint();
+        }
+        else if (Time.fixedTime > _waypointSelectedTime + timeoutTime)
         {
             _waypoint = ChooseWayPoint();
         }
