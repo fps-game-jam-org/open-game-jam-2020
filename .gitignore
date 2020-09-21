@@ -74,6 +74,9 @@ crashlytics-build.properties
 # Packages
 /[Aa]ssets/TextMesh\ Pro/
 
+# Exceptions
+!TagManager.asset
+
 # emacs
 *~
 *#
